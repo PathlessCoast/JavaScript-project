@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+</body>
+<script>
+  let compChoice = "";
+
+  function computerPlay() {
+    let choiceNum = Math.floor(Math.random() * 3);
+    if (choiceNum == 0){
+        compChoice = "rock";
+    }
+    else if (choiceNum == 1){
+        compChoice = "paper";
+    }
+    else if(choiceNum == 2){
+        compChoice = "scissors";
+    }
+    return compChoice;
+  }
+
+  let compScore = 0
+  let playerScore = 0
+
+  function oneGame(playerChoice, compChoice){
+    compChoice = computerPlay();
+    console.log(compChoice);
+
+    if(playerChoice==compChoice){
+      console.log("It's a tie!")
+      compScore += 0
+      playerScore += 0
+    }
+    else if(playerChoice=="rock" && compChoice=="scissors"){
+      console.log("You win! rock beats scissors")
+      playerScore += 1
+      compScore += 0
+    }
+    else if(playerChoice=="rock" && compChoice=="paper"){
+      console.log("You lose! paper beats rock")
+      playerScore += 0
+      compScore += 1
+    }
+    else if(playerChoice=="scissors" && compChoice=="rock"){
+      console.log("You lose! rock beats scissors")
+      playerScore += 0
+      compScore += 1
+    }
+    else if(playerChoice=="scissors" && compChoice=="paper"){
+      console.log("You win! paper beats scissors")
+      playerScore += 1
+      compScore += 0
+    }
+    else if(playerChoice=="paper" && compChoice=="rock"){
+      console.log("You win! paper beats rock")
+      playerScore += 1
+      compScore += 0
+    }
+    else if(playerChoice=="paper" && compChoice=="scissors"){
+      console.log("You lose! scissors beats paper")
+      playerScore += 0
+      compScore += 1
+    }
+  }
+
+  function game() {
+    let playerChoice = prompt("write your choice").toLowerCase();
+    console.log(oneGame(playerChoice,compChoice));
+    console.log("tú:"+playerScore+" orde:"+compScore)
+    playerChoice = prompt("write your choice").toLowerCase();
+    console.log(oneGame(playerChoice,compChoice));
+    console.log("tú:"+playerScore+" orde:"+compScore)
+    playerChoice = prompt("write your choice").toLowerCase();
+    console.log(oneGame(playerChoice,compChoice));
+    console.log("tú:"+playerScore+" orde:"+compScore)
+    playerChoice = prompt("write your choice").toLowerCase();
+    console.log(oneGame(playerChoice,compChoice));
+    console.log("tú:"+playerScore+" orde:"+compScore)
+    playerChoice = prompt("write your choice").toLowerCase();
+    console.log(oneGame(playerChoice,compChoice));
+    console.log("tú:"+playerScore+" orde:"+compScore)
+
+    if(playerScore > compScore){
+      console.log("Tú ganas la ronda!")
+    }
+    else {
+      console.log("Tú pierdes la ronda!")
+    }
+  }
+  game();
+</script>
+</html>
